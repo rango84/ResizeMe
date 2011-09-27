@@ -1,0 +1,30 @@
+﻿<Window x:Class="ResizeMe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Resize Me" Height="293" Width="629">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" >
+            <MenuItem Header="File" Name="File">
+                <MenuItem Header="_Close" Name="_Close" Click="_Close_Click" />
+            </MenuItem>
+            <MenuItem Header="Help" Name="Help">
+                <MenuItem Header="About" Name="About" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+        <TextBox Height="23" Margin="148,20,68,0" Name="textBoxSource" VerticalAlignment="Top" />
+        <Button Content="..." Height="23" Margin="0,53,12,0" Name="DestBtnBrowse" VerticalAlignment="Top" HorizontalAlignment="Right" Width="31" Click="Browse_Click" />
+        <Label Content="Source Folder" Height="28" HorizontalAlignment="Left" Margin="37,18,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Destination Folder" Height="28" HorizontalAlignment="Left" Margin="13,48,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="23" Margin="148,53,68,0" Name="textBoxDest" VerticalAlignment="Top" />
+        <Button Content="..." Height="23" Margin="0,19,12,0" Name="SrcBtnBrowse" VerticalAlignment="Top" HorizontalAlignment="Right" Width="31" Click="Browse_Click" />
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="67,82,0,0" Name="lbl1" Width="53" Height="28" VerticalAlignment="Top" />
+        <Label Height="28" Margin="148,82,308,0" Name="lblStatus" VerticalAlignment="Top" />
+        <Button Content="Work" Height="23" HorizontalAlignment="Right" Margin="0,192,12,0" Name="btnGo" VerticalAlignment="Top" Width="67" Click="btnGo_Click" />
+        <ProgressBar Height="26" Margin="13,192,0,0" Name="fileProgressBar" VerticalAlignment="Top" Foreground="#FF1515EF" HorizontalAlignment="Left" Width="479" />
+        <Label Content="Scale(% of original)" Height="28" HorizontalAlignment="Left" Margin="8,119,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="148,119,0,0" Name="textBoxScale" VerticalAlignment="Top" Width="73" />
+            <Label Height="23" HorizontalAlignment="Left" Margin="13,161,0,0" Name="lblCurrentFile" VerticalAlignment="Top" Width="480" />
+        </Grid>
+    </DockPanel>
+</Window>
