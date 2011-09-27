@@ -22,7 +22,7 @@ namespace ResizeMe
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-
+    //TODO- Work in progress
     public delegate void UpdateProgress(int progress, string file);
     public partial class MainWindow : Window
     {
