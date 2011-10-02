@@ -24,5 +24,6 @@ C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResizeMe_MarkupCompile.ca
 C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResizeMe.g.resources
 C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResizeMe.AboutResizeMe.resources
 C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResizeMe.Properties.Resources.resources
-C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\bin\Debug\ResizeMe.exe.config
+C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResGen.read.1.tlog
+C:\Users\Goran\.ssh\ResizeMe\ResizeMeSln\obj\x86\Debug\ResGen.write.1.tlog
