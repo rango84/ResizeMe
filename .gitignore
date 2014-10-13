@@ -1,2 +1,3 @@
-ResizeMeSln/bin/Debug/ResizeMe.exe
 *.suo
+bin/
+obj/
