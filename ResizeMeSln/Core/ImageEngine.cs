@@ -9,65 +9,44 @@ using System.Threading;
 using System.Windows.Threading;
 
 
-namespace ResizeMe
+namespace ResizeMe.Core
 {
     
     public class ImageEngine
     {
-        private string m_SourceFolder;
-        private string m_DestFolder;
-        private string m_OutputFile;
-        private double m_ScalePercent;
-        public UpdateProgress progressDelegate;
-        private List<String> FilesToProcess;
-        
-        private ImageEngine() { }
-        public ImageEngine(string sourceFolder, string destFolder,double scale)
+        private double _scalePercent;
+        public ImageEngine(double scalePercent) 
         {
-            m_SourceFolder = sourceFolder;
-            m_DestFolder = destFolder;
-            m_ScalePercent = scale;
-            FilesToProcess = new List<string>();
-        }
-        public void Process() 
-        {
-            int count = 1;
-            foreach (string File in FilesToProcess)
-            {
-                m_OutputFile = m_DestFolder + "\\" + Path.GetFileName(File);
-                progressDelegate.Invoke(count, File);
-                Bitmap img = new Bitmap(File);
-                Size size = new Size(0, 0);
-                Bitmap newImage = resizeImage(img, size, (float)m_ScalePercent);
-                SaveImage(newImage, 100L);
-                img.Dispose();
-                newImage.Dispose();
-                count++;
-                
-            }
-            
+            _scalePercent = scalePercent;   
         }
 
-        private void SaveImage(Bitmap img, long quality) 
+        public void ProcessImage(string file, string outputFile) 
+        {
+            using(Bitmap img = new Bitmap(file))
+            {
+                Size size = new Size(0, 0);
+                using(Bitmap newImage = resizeImage(img, size, (float)_scalePercent))
+                {
+                    SaveImage(newImage, 100L,outputFile);
+                }
+            }
+        }
+
+        private void SaveImage(Bitmap img, long quality, string outputFile) 
         {
             
             EncoderParameter qty = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
             ImageCodecInfo jpegCodec = getEncoderInfo("image/jpeg");
-
             if (jpegCodec == null)
                 return;
-
             EncoderParameters encoderParam = new EncoderParameters(1);
             encoderParam.Param[0] = qty;
-
-            img.Save(m_OutputFile, jpegCodec, encoderParam);
-            img.Dispose();
+            img.Save(outputFile, jpegCodec, encoderParam);
         }
 
         private ImageCodecInfo getEncoderInfo(string mimeType) 
         {
             ImageCodecInfo [] codecs = ImageCodecInfo.GetImageEncoders();
-
             for (int i = 0; i < codecs.Length; ++i)
             {
                 if (codecs[i].MimeType == mimeType)
@@ -117,18 +96,9 @@ namespace ResizeMe
             return newImg;
         }
 
-        public void GetFilesInDirectory()
-        {
-            string[] files = Directory.GetFiles(m_SourceFolder);
-            for (int i = 0; i != files.Length; ++i)
-            {
-                string ext = System.IO.Path.GetExtension(files[i]);
-                if (ext.ToLower() == ".jpg")
-                    FilesToProcess.Add(System.IO.Path.GetFullPath(files[i]));
-            }
-        }
     }
 
+    //TODO: refactor this
     public static class Helper 
     {
         public static int GetValidFilesInDirectory(string folder)

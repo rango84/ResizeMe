@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D453F95D-9D87-4FBF-893B-D3B82891A469}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResizeMe", "ResizeMeSln\ResizeMe.csproj", "{C8679389-8FE4-4E55-A7AA-54FBF4A2D6CA}"
 EndProject
 Global
